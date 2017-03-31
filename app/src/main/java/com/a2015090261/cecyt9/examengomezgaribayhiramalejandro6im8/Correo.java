@@ -11,19 +11,19 @@ import android.widget.TextView;
  */
 
 public class Correo extends Activity {
-    Double NumeroRec;
-    TextView Muestrame;
+    Double num;
+    TextView pantallaview;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_2);
-        Muestrame = (TextView) findViewById(R.id.Muestrame);
+        pantallaview = (TextView) findViewById(R.id.Muestrame);
         Bundle recibe = new Bundle();
         recibe = this.getIntent().getExtras();
-        NumeroRec = recibe.getDouble("Numero");
-        Muestrame.setText("Nombre: Gomez Garibay Hiram Alejandro" + "\n" +
-                "Resultado: " + NumeroRec.toString()
+        num = recibe.getDouble("Numero");
+        pantallaview.setText("Nombre: Gomez Garibay Hiram Alejandro" + "\n" +
+                "Resultado: " + num.toString()
         );
     }
 
@@ -32,7 +32,7 @@ public class Correo extends Activity {
         Intent intent = new Intent(Intent.ACTION_SEND);
         intent.setType("text/plain");
         intent.putExtra(Intent.EXTRA_SUBJECT, "Asunto: Examen");
-        intent.putExtra(Intent.EXTRA_TEXT, "Contenido del correo: Gomez Garibay Hiram Alejandro :3 :3 ;)   Resultado: " + NumeroRec );
+        intent.putExtra(Intent.EXTRA_TEXT, "Contenido del correo: Gomez Garibay Hiram Alejandro :3 :3 ;)   Resultado: " + num);
         intent.putExtra(Intent.EXTRA_EMAIL, new String[] { "magicalex@outlook.es"} );
         startActivity(intent);
     }

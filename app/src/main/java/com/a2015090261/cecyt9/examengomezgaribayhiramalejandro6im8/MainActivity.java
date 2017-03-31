@@ -26,7 +26,7 @@ public class MainActivity extends Activity {
     public void Convertir(View v){
         System.out.println("Hasta aqui corre :c 1" );
         if(num.getText().toString().equals("")){
-            Toast toast =  Toast.makeText(getApplicationContext(), "No se detecto numero", Toast.LENGTH_SHORT);
+            Toast toast =  Toast.makeText(getApplicationContext(), "No hay numero :c", Toast.LENGTH_SHORT);
             toast.show();
         }else {
             Intent envia = new Intent(this, Correo.class);
